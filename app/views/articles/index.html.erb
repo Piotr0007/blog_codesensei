@@ -2,17 +2,17 @@
 
 <table>
 <tr>
-  <td>Id</td>
-  <td>Title</td>
-  <td>Text</td>
+  <td> Id </td>
+  <td> Title </td>
+  <td> Text </td>
 </tr>
 
 <% @articles.each do |article| %>
 
 <tr>
-  <td>article.id</td>
-  <td>article.title</td>
-  <td>article.text</td>
+  <td><%= article.id %></td>
+  <td><%= article.title %></td>
+  <td><%= article.text %></td>
 </tr>
 <% end %>
 </table>
