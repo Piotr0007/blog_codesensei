@@ -6,3 +6,8 @@
 <strong> Body: </strong>
 <%= comment.body %>
 </p>
+<p>
+<%= link_to "Destroy", article_comment_path(comment.article, comment), 
+  		method: :delete,
+  		data: {confirm: "Are you sure?"} %>
+</p>
