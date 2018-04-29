@@ -35,5 +35,18 @@
 </p>
 <% end %>
 
+<h2>Comments</h2>
+<% @article.comments.reload.each do |comment| %>
+<p>
+<strong> Commenter: </strong>
+<%= comment.commenter %>
+</p>
+<p>
+<strong> Body: </strong>
+<%= comment.body %>
+</p>
+
+<% end %>
+
 <%= link_to "Back", articles_path %>
 <%= link_to "Edit", edit_article_path(@article) %>
