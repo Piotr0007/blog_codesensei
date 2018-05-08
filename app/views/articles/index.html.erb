@@ -1,13 +1,17 @@
-<h1> List of articles</h1>
+
+<h1><div class="panel panel-primary">List of articles</div></h1>
 
 <h2><%= link_to "New article", new_article_path %></h2>
 <table class = "table">
+
+
+
 <thead>
 
 <tr>
-  <th> Id </th>
-  <th> Title </th>
-  <th> Text </th>
+  <th> <span class="label label-primary">Id</span></th> 
+  <th> <span class="label label-success">Title</span></th>
+  <th> <span class="label label-info">Text</span></th>
   <th> </th>
   <th> </th>
   <th> </th>
@@ -15,6 +19,8 @@
 </tr>
 </thead>
 <tbody>
+
+
   <% @articles.each do |article| %>
 
   <tr>
@@ -30,6 +36,11 @@
     		data: {confirm: "Are you sure?"} %></td>
   </tr>
   <% end %>
+
+
 </tbody>
+
 </table>
+
+
 <h2><%= link_to "New article", new_article_path %></h2>
