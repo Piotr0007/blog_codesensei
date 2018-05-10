@@ -1,25 +1,25 @@
 <p>
-<strong>Title:</strong>
+<strong><span class="label label-info">Title</span></strong>
 <%= @article.title %>
 </p>
 
 <p>
-<strong>Text:</strong>
+<strong><span class="label label-success">Text</span></strong>
 <%= @article.text %>
 </p>
 
 <p>
-<strong>Created at:</strong>
+<strong><span class="label label-info">Created at</span></strong>
 <%= @article.created_at %>
 </p>
 <p>
-<strong>Updated at:</strong>
+<strong><span class="label label-primary">Updated at</span></strong>
 <%= @article.updated_at %>
 </p>
 
 <%= render 'comments/form' %>
 
-<h2>Comments</h2>
+<h2><span class="label label-primary">Comments</span></h2>
 <%= render @article.comments.reload %>
 
 
