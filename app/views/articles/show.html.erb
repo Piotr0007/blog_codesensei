@@ -16,6 +16,10 @@
 <strong><span class="label label-primary">Updated at</span></strong>
 <%= @article.updated_at %>
 </p>
+<p>
+<strong>Tags:</strong>
+<%= @article.tags.join(" ") %>
+</p>
 
 <%= render 'comments/form' %>
 

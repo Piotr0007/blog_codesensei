@@ -3,6 +3,7 @@
 <%= form_for @article do |f| %>
 
 
+
   <div class ="form_group">
   
 
@@ -19,6 +20,15 @@
     <%= f.text_area :text, class: "form-control", placeholder: "Text" %>
 
   </div>
+
+    <div class ="form_group">
+  
+
+    <%= f.label :tags %><br>
+
+    <%= f.text_field :tags, class: "form-control", placeholder: "Tags" %>
+
+</div>
 
   <p>
 
