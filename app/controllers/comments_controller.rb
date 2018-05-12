@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
   	
     if @comment.save
       session[:commenter] = @comment.commenter
+      flash[:notice] = 'You comment has been saved'
 	    redirect_to article_path(@article)
 
 	  else
@@ -15,6 +16,7 @@ class CommentsController < ApplicationController
   def destroy
   	@comment = Comment.find(params[:id])
   	@comment.destroy
+    flash[:notice] = 'You comment has been deleted'
   	redirect_to article_path(@comment.article)
   end
 

@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
   	if @article.save
   	  redirect_to article_path(@article)
+      flash[:notice] = 'You comment has been saved'
   	else
   	  render 'new' 
   	end   
@@ -24,6 +25,7 @@ class ArticlesController < ApplicationController
     @comment = @article.comments.build(commenter: session[:commenter])
   end
   def edit
+    
  
   end
 
@@ -40,6 +42,7 @@ class ArticlesController < ApplicationController
   	
   	@article.destroy
   	redirect_to articles_path
+    flash[:notice] = 'You comment has been deleted'
   end	
 
   private
