@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_05_12_081916) do
     t.text "text"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "tags", default: [], array: true
   end
 
   create_table "comments", force: :cascade do |t|

@@ -2,6 +2,17 @@
 <h1><div class="panel panel-primary">List of articles</div></h1>
 
 <h2><%= link_to "New article", new_article_path %></h2>
+
+<%= form_tag articles_path, method: :get do %>
+ <div class="input-group">
+   <%= text_field_tag :q,"", class: "form-control" %>
+   <span class="input-group-btn">
+     <%= submit_tag "Search", class: "btn btn-default" %>
+   </span>
+ </div>
+<% end %>
+
+
 <table class = "table">
 
 
@@ -24,6 +35,7 @@
 
 
 <% @articles.each do |article| %>
+<% @@article.where("? = any(tags)", "poland")
 
   <tr>
     <td><%= article.id %></td>

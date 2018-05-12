@@ -1,11 +1,19 @@
 class ArticlesController < ApplicationController
 	before_action :find_article, only: [:show, :update, :edit, :destroy]
   def index
+    
   	@articles =Article.all
+    if params[:q].present?
+      @articles = @articles.select do |articel| 
+        article.tags.include? params[:q].downcase
+      end
+    end
   end
+
   def new
   	@article = Article.new
   end
+
   def create
     @article = Article.new(article_params)
   	if @article.save
