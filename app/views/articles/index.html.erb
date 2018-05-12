@@ -8,6 +8,7 @@
    <%= text_field_tag :q,"", class: "form-control" %>
    <span class="input-group-btn">
      <%= submit_tag "Search", class: "btn btn-default" %>
+
    </span>
  </div>
 <% end %>
@@ -23,6 +24,7 @@
   <th> <span class="label label-primary">Id</span></th> 
   <th> <span class="label label-success">Title</span></th>
   <th> <span class="label label-info">Text</span></th>
+  <th> <span class="label label-info">Author</span></th>
  
   <th> </th>
   <th> </th>
@@ -41,6 +43,7 @@
     <td><%= article.id %></td>
     <td><%= article.title %></td>
     <td><%= article.text %></td>
+    <td><%= article.author.email %></td>
    
     <td>Comments: <%= article.comments.count %> </td>
     <td><%= link_to "Show", article_path(article), class: "btn btn-info" %></td>

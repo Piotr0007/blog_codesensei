@@ -9,6 +9,12 @@
 </p>
 
 <p>
+<strong><span class="label label-success">Author</span></strong>
+<%= @article.author %>
+</p>
+
+
+<p>
 <strong>Tags:</strong>
 <% @article.tags.each do |tag| %>
 <%= link_to articles_path(q: tag), style: 'margin-left:4px' do %>
