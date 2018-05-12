@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
  root 'welcome#index'
  #get 'articles', to: 'articles#index'
  #get 'articles/new', to: 'articles#new', as:'new_article'

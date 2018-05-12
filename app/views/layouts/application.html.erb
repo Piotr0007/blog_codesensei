@@ -12,7 +12,31 @@
 
   <body>
 
-  <div class = "container">
+  <% if notice %>
+   <div class = "alert alert-info">
+   <%= notice %>
+   </div>
+  <%end%>
+  <% if alert%>
+  <div class = "alert alert-danger">
+  <%= alert%>
+  </div>
+  <%end%>
+
+  <%if current_user%>
+
+<p>
+Hello <%= current_user.email %>
+  <%= link_to 'Logout', destroy_user_session_path, method: :delete%>
+</p>
+<%else%>
+  <%= link_to 'Sign_in', new_user_session_path%>
+   <%= link_to 'Sign_up', new_user_registration_path%>
+  <%end%>
+
+
+
+  <div class = "container">  
     <%= yield %>
   </body>
 </html>
