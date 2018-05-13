@@ -2,7 +2,7 @@ class ArticlesController < ApplicationController
 	  before_action :find_article, only: %i[show update edit destroy]
     before_action :authorize_article, only: %i[edit update destroy]
   def index
-    @articles =Article.all
+    @articles =Article.page(params[:page])
    
     @articles = @articles
                 .where("? = any(tags)",
@@ -28,7 +28,9 @@ class ArticlesController < ApplicationController
     @comment = @article.comments.build(commenter: session[:commenter])      
   end
 
-  def edit; end
+  def edit
+  
+  end
 
   def update
   	if @article.update(article_params)
