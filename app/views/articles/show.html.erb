@@ -34,6 +34,19 @@
 <strong><span class="label label-primary">Updated at</span></strong>
 <%= @article.updated_at %>
 </p>
+
+<%= pluralize(@article.likes.count, "person") %> liked this article
+
+<% if @like.persisted? %>
+<span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+<%= link_to "Unlike", article_like_path(@article, @like), method: :delete %>
+<%else%>
+<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+<%= link_to "like", article_likes_path(@article), method: :post %>
+<%end%>
+
+
+
 <p>
 <strong>Tags:</strong>
 <%= @article.tags.join(" ") %>

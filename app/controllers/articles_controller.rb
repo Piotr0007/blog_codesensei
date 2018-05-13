@@ -25,12 +25,11 @@ class ArticlesController < ApplicationController
   end 
 
   def show
-    @comment = @article.comments.build(commenter: session[:commenter])      
+    @comment = @article.comments.build(commenter: session[:commenter])   
+    @like = Like.find_or_initialize_by(article: @article, user: current_user)   
   end
 
-  def edit
-  
-  end
+  def edit; end
 
   def update
   	if @article.update(article_params)

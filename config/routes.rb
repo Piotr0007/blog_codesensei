@@ -9,7 +9,8 @@ Rails.application.routes.draw do
  #patch 'articles/:id', to: 'articles#update'
  #delete 'articles/:id', to: 'articles#destroy'
 resources :articles do
-resources :comments
+resources :comments, only: %i[create destroy]
+resources :likes, only: %i[create destroy]
  end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
