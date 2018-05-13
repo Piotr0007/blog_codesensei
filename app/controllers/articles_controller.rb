@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 	  before_action :find_article, only: %i[show update edit destroy]
-  
+    before_action :authorize_article, only: %i[edit update destroy]
   def index
     @articles =Article.all
    
@@ -53,6 +53,13 @@ class ArticlesController < ApplicationController
 
   def find_article
   	@article = Article.find(params[:id])
+  end
+
+  def authorize_article
+    if @article.author != current_user
+      flash[:alert] = "This is not your article"
+      redirect_to articles_path
+    end
   end
 
 

@@ -46,4 +46,7 @@
 
 
 <%= link_to "Back", articles_path %>
-<%= link_to "Edit", edit_article_path(@article) %>
+ <% if @article.author == current_user %>
+<%= link_to "Edit", edit_articles_path(@article) %>
+  <%end%>
+ 
