@@ -60,6 +60,6 @@
 
 <%= link_to "Back", articles_path %>
  <% if @article.author == current_user %>
-<%= link_to "Edit", edit_articles_path(@article) %>
+<%= link_to "Edit", edit_article_path(@article) %>
   <%end%>
  

@@ -57,10 +57,7 @@ class ArticlesController < ApplicationController
   end
 
   def authorize_article
-    if @article.author != current_user
-      flash[:alert] = "This is not your article"
-      redirect_to articles_path
-    end
+    authorize @article
   end
 
 
