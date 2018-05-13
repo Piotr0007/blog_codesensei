@@ -1,11 +1,12 @@
 class ArticlesController < ApplicationController
-	before_action :find_article, only: [:show, :update, :edit, :destroy]
+	  before_action :find_article, only: %i[show update edit destroy]
+  
   def index
-    
-  	@articles =Article.all
-    if params[:q].present?
-      @articles = @articles.where("? = any(tags)", params[:q].downcase)
-    end
+    @articles =Article.all
+   
+    @articles = @articles
+                .where("? = any(tags)",
+                       params[:q].downcase) if params[:q].present?
   end
 
   def new
@@ -20,25 +21,23 @@ class ArticlesController < ApplicationController
       flash[:notice] = 'You comment has been saved'
   	else
   	  render 'new' 
-  	end   
+  	end      
   end 
-  def show
-    @comment = @article.comments.build(commenter: session[:commenter])
-  end
-  def edit
 
- 
+  def show
+    @comment = @article.comments.build(commenter: session[:commenter])      
   end
+
+  def edit; end
 
   def update
-  	
-  
   	if @article.update(article_params)
   		redirect_to article_path(@article)
   	else
   	render 'edit'	
     end
   end
+
   def destroy
   	
   	@article.destroy
@@ -51,6 +50,7 @@ class ArticlesController < ApplicationController
   def article_params
   	params.require(:article).permit(:title, :text, :tags)
   end
+
   def find_article
   	@article = Article.find(params[:id])
   end
