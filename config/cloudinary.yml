@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dzarmkn4k
+  api_key: '958266837373615'
+  api_secret: sQQJd926Px-PC7pfgx4pVUdICpQ
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dzarmkn4k
+  api_key: '958266837373615'
+  api_secret: sQQJd926Px-PC7pfgx4pVUdICpQ
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dzarmkn4k
+  api_key: '958266837373615'
+  api_secret: sQQJd926Px-PC7pfgx4pVUdICpQ
+  enhance_image_tag: true
+  static_image_support: false

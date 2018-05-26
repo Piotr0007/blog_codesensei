@@ -35,6 +35,12 @@
 <%= @article.updated_at %>
 </p>
 
+<p>
+<strong><span class="label label-primary">Image</span></strong>
+<%= image_tag(@article.image.url) %>
+</p>
+
+
 <%= pluralize(@article.likes.count, "person") %> liked this article
 
 <% if @like.persisted? %>

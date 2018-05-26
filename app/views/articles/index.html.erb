@@ -25,6 +25,7 @@
   <th> <span class="label label-success">Title</span></th>
   <th> <span class="label label-info">Text</span></th>
   <th> <span class="label label-info">Author</span></th>
+  <th> <span class="label label-info">Image</span></th>
  
   <th> </th>
   <th> </th>
@@ -44,6 +45,7 @@
     <td><%= article.title %></td>
     <td><%= article.text %></td>
     <td><%= article.author.email %></td>
+    <td><%= article.image %></td>
    
     <td>Comments: <%= article.comments.count %> </td>
     <td><%= link_to "Show", article_path(article), class: "btn btn-info" %></td>

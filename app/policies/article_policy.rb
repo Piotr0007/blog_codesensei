@@ -1,7 +1,7 @@
 class ArticlePolicy < ApplicationPolicy
 	
   def permitted_attributes
-	%i[title text tags]
+	%i[title text image tags]
   end 
 
   def update?
