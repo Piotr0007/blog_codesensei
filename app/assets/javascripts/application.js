@@ -62,9 +62,7 @@ window.addEventListener("load", function() {
 
         var summary = document.getElementById("summary-" + this.response.id)
 
-        summary
-
-          .innerText = "Comments: " + this.response.comments + ". Likes: " + this.response.likes;
+        summary.innerText = "Comments: " + this.response.comments + ". Likes: " + this.response.likes;
 
       });
 

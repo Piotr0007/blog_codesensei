@@ -34,7 +34,8 @@ class ArticlesController < ApplicationController
   end
     format.json do
     render json: {
-      id: @article.likes.count, 
+      id: @article.id,
+      likes: @article.likes.count, 
       comments: @article.comments.count
     }
   end
