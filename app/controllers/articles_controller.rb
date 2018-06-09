@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
-	  before_action :find_article, only: %i[show update edit destroy]
-    before_action :authorize_article, only: %i[edit update destroy]
+	  before_action :find_article, only: %i[show update edit destroy likes_summary]
+    before_action :authorize_article, only: %i[edit update destroy ]
   def index
     @articles =Article.page(params[:page])
    
@@ -23,6 +23,8 @@ class ArticlesController < ApplicationController
   	  render 'new' 
   	end      
   end 
+  def likes_summary
+  end
 
   def show
     @comment = @article.comments.build(commenter: session[:commenter])   

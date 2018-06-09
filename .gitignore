@@ -21,7 +21,7 @@
 
 /public/assets
 .byebug_history
-config/cloudinary.yml
+.cloudianry
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
