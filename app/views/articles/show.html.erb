@@ -59,10 +59,12 @@
 </p>
 
 <%= render 'comments/form' %>
+<a href="#" id="toggle-comments">HIDE comments</a>
+<div id="comments">
 
 <h2><span class="label label-primary">Comments</span></h2>
 <%= render @article.comments.reload %>
-
+</div>
 
 <%= link_to "Back", articles_path %>
  <% if @article.author == current_user %>

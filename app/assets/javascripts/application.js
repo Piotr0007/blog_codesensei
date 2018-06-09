@@ -13,3 +13,22 @@
 //= require rails-ujs
 //= require activestorage
 //= require_tree .
+
+window.addEventlistener("load", function() {
+  var toggleButton = document.getElementById("toggle-comments")
+  if (toggleButton !=null) {
+    toggleButton.addEventListener("click", function(e) { 
+    	e.preventDefault();
+    	var comments = document.getElementById("comments");
+		if (comments.style.display == "none") {
+			comments.style.display = "block";
+			this.innerHTML = "HIDE comments"
+		} else {
+			comments.style.display ="none";
+			this.innerHTML = "SHOW comments";
+		}
+
+    });
+  }
+
+});
