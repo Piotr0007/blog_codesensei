@@ -14,21 +14,64 @@
 //= require activestorage
 //= require_tree .
 
-window.addEventlistener("load", function() {
+window.addEventListener("load", function() {
+
   var toggleButton = document.getElementById("toggle-comments")
-  if (toggleButton !=null) {
-    toggleButton.addEventListener("click", function(e) { 
-    	e.preventDefault();
-    	var comments = document.getElementById("comments");
-		if (comments.style.display == "none") {
-			comments.style.display = "block";
-			this.innerHTML = "HIDE comments"
-		} else {
-			comments.style.display ="none";
-			this.innerHTML = "SHOW comments";
-		}
+
+  if (toggleButton != null) {
+
+    toggleButton.addEventListener("click", function(e) {
+
+      e.preventDefault();
+
+      var comments = document.getElementById("comments");
+
+      if(comments.style.display == "none") {
+
+        comments.style.display = "block";
+
+        this.innerHTML = "HIDE comments";
+
+      } else {
+
+        comments.style.display = "none";
+
+        this.innerHTML = "SHOW comments";
+
+      }
 
     });
+
+  }
+
+  var summaryElements = document.querySelectorAll(".summary");
+
+  for(i = 0; i < summaryElements.length; i++) {
+
+    summaryElements[i].addEventListener("click", function(e) {
+
+      e.preventDefault();
+
+      var request = new XMLHttpRequest();
+
+      request.open("GET", this.href);
+
+      request.responseType = "json";
+
+      request.addEventListener("load", function() {
+
+        var summary = document.getElementById("summary-" + this.response.id)
+
+        summary
+
+          .innerText = "Comments: " + this.response.comments + ". Likes: " + this.response.likes;
+
+      });
+
+      request.send();
+
+    });
+
   }
 
 });
